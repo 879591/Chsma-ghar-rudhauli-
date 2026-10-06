@@ -1,0 +1,6 @@
+{
+  "name": "नेत्री आई केयर सेंटर एवं चश्मा घर | रुधौली-बस्ती",
+  "description": "नेत्री आई केयर सेंटर एवं चश्मा घर, रुधौली-बस्ती में आँखों की जाँच, चश्मे, फ्रेम और ऑप्टिकल सेवाओं के लिए संपर्क करें।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

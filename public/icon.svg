@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B192C" />
+      <stop offset="100%" stop-color="#1E3E62" />
+    </linearGradient>
+    <linearGradient id="teal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00A8CC" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Square -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)" />
+  <rect x="20" y="20" width="472" height="472" rx="96" fill="none" stroke="url(#gold)" stroke-width="4" stroke-opacity="0.35" />
+
+  <!-- Stylized Eye Contour Behind Spectacles -->
+  <path d="M86 230 C166 130, 346 130, 426 230 C346 330, 166 330, 86 230 Z" fill="none" stroke="url(#teal)" stroke-width="10" stroke-linecap="round" stroke-opacity="0.4" />
+
+  <!-- Spectacles Frame (Gold & Cyan Optical Identity) -->
+  <!-- Left Lens Frame -->
+  <rect x="76" y="176" width="148" height="108" rx="36" fill="#0B192C" fill-opacity="0.85" stroke="url(#gold)" stroke-width="14" />
+  <!-- Right Lens Frame -->
+  <rect x="288" y="176" width="148" height="108" rx="36" fill="#0B192C" fill-opacity="0.85" stroke="url(#gold)" stroke-width="14" />
+  <!-- Bridge -->
+  <path d="M224 218 Q256 192 288 218" fill="none" stroke="url(#gold)" stroke-width="14" stroke-linecap="round" />
+  <!-- Temple Arms Hints -->
+  <path d="M52 206 L76 206" stroke="url(#gold)" stroke-width="12" stroke-linecap="round" />
+  <path d="M436 206 L460 206" stroke="url(#gold)" stroke-width="12" stroke-linecap="round" />
+
+  <!-- Glowing Cyan Pupils / Optical Lenses -->
+  <circle cx="150" cy="230" r="26" fill="url(#teal)" />
+  <circle cx="142" cy="222" r="8" fill="#FFFFFF" />
+  <circle cx="362" cy="230" r="26" fill="url(#teal)" />
+  <circle cx="354" cy="222" r="8" fill="#FFFFFF" />
+
+  <!-- Medical Optical Cross Accent at Top -->
+  <path d="M256 88 V124 M238 106 H274" stroke="#38BDF8" stroke-width="10" stroke-linecap="round" />
+
+  <!-- Brand Hindi Title "नेत्री" -->
+  <text x="256" y="392" font-family="sans-serif" font-size="82" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">नेत्री</text>
+  <text x="256" y="440" font-family="sans-serif" font-size="22" font-weight="600" fill="#38BDF8" text-anchor="middle" letter-spacing="3">EYE CARE &amp; OPTICAL</text>
+</svg>

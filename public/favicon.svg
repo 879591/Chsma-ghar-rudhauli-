@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="28" fill="#0B192C" />
+  <rect x="16" y="42" width="40" height="30" rx="10" fill="none" stroke="#F59E0B" stroke-width="6" />
+  <rect x="72" y="42" width="40" height="30" rx="10" fill="none" stroke="#F59E0B" stroke-width="6" />
+  <path d="M56 54 Q64 46 72 54" fill="none" stroke="#F59E0B" stroke-width="6" stroke-linecap="round" />
+  <circle cx="36" cy="57" r="8" fill="#00A8CC" />
+  <circle cx="92" cy="57" r="8" fill="#00A8CC" />
+  <text x="64" y="104" font-family="sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" text-anchor="middle">नेत्री</text>
+</svg>

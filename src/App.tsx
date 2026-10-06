@@ -27,10 +27,16 @@ import {
   Navigation,
   Settings,
   FileText,
+  Globe,
+  Mail,
+  Instagram,
+  Facebook,
+  Code2,
 } from 'lucide-react';
 import {
   AppointmentRequest,
   CustomerEnquiry,
+  DEFAULT_DEVELOPER_CONFIG,
   DEFAULT_WHATSAPP_GREETING,
   EyewearProduct,
   FRAME_WHATSAPP_GREETING,
@@ -1712,8 +1718,154 @@ export default function App() {
             </div>
           </div>
 
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          {/* ==================================================
+              COMPACT PREMIUM "ABOUT DEVELOPER" SECTION
+              (Placed at the bottom of the page, just above copyright)
+             ================================================== */}
+          {(() => {
+            const dev = config.developer || DEFAULT_DEVELOPER_CONFIG;
+            const devWhatsappLink = `https://wa.me/${dev.whatsappPhone}?text=${encodeURIComponent(
+              dev.whatsappPrefill
+            )}`;
+            const cleanGmail = (dev.gmailAddress || '').trim();
+
+            return (
+              <div className="pt-6 pb-5 border-b border-white/10">
+                <div className="rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 px-4 py-3.5 sm:px-5 sm:py-4 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                  {/* Left: Compact Developer Identity & Short Description */}
+                  <div className="space-y-1.5 max-w-2xl">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-slate-400">
+                      <span className="inline-flex items-center gap-1 font-semibold uppercase tracking-wider text-sky-400">
+                        <Code2 className="w-3.5 h-3.5" />
+                        About Developer
+                      </span>
+                      <span aria-hidden="true">·</span>
+                      <span className="font-bold text-white text-xs">{dev.name}</span>
+                      <span className="text-amber-400 font-semibold text-xs">{dev.handle}</span>
+                      <span aria-hidden="true">·</span>
+                      <span className="text-slate-300">{dev.subtitle}</span>
+                    </div>
+
+                    <p className="text-xs text-slate-300 leading-relaxed">
+                      {dev.descriptionHi}
+                    </p>
+
+                    {/* Contact Links Row */}
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-0.5 text-[11px] text-slate-300">
+                      <a
+                        href={`tel:+91${dev.phone}`}
+                        className="inline-flex items-center gap-1 hover:text-white transition-colors font-mono-num"
+                      >
+                        <Phone className="w-3 h-3 text-sky-400" />
+                        <span>{dev.phone}</span>
+                      </a>
+                      <span className="text-white/20" aria-hidden="true">·</span>
+                      <a
+                        href={dev.instagramUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors"
+                      >
+                        Instagram: {dev.instagramHandle}
+                      </a>
+                      <span className="text-white/20" aria-hidden="true">·</span>
+                      <a
+                        href={dev.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sky-300 hover:text-white transition-colors"
+                      >
+                        <Globe className="w-3 h-3" />
+                        <span>srd-one.vercel.app</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Right: 4 Small Premium Icon Buttons + Compact CTA */}
+                  <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-start sm:items-center lg:items-end xl:items-center gap-3 shrink-0">
+                    {/* 4 Small Premium Icon Buttons: WhatsApp, Instagram, Facebook, Gmail */}
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={devWhatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="WhatsApp Suraj Maurya"
+                        title="WhatsApp"
+                        className="w-9 h-9 rounded-xl bg-white/5 hover:bg-emerald-600/90 border border-white/10 hover:border-emerald-500 text-slate-200 hover:text-white flex items-center justify-center transition-all duration-150 hover:-translate-y-0.5"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                      </a>
+
+                      <a
+                        href={dev.instagramUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram @suraj.5tar"
+                        title="Instagram (@suraj.5tar)"
+                        className="w-9 h-9 rounded-xl bg-white/5 hover:bg-pink-600/90 border border-white/10 hover:border-pink-500 text-slate-200 hover:text-white flex items-center justify-center transition-all duration-150 hover:-translate-y-0.5"
+                      >
+                        <Instagram className="w-4 h-4" />
+                      </a>
+
+                      <a
+                        href={dev.facebookUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook Profile"
+                        title="Facebook"
+                        className="w-9 h-9 rounded-xl bg-white/5 hover:bg-blue-600/90 border border-white/10 hover:border-blue-500 text-slate-200 hover:text-white flex items-center justify-center transition-all duration-150 hover:-translate-y-0.5"
+                      >
+                        <Facebook className="w-4 h-4" />
+                      </a>
+
+                      {cleanGmail ? (
+                        <a
+                          href={`mailto:${cleanGmail}`}
+                          aria-label={`Email ${cleanGmail}`}
+                          title={`Gmail: ${cleanGmail}`}
+                          className="w-9 h-9 rounded-xl bg-white/5 hover:bg-amber-600/90 border border-white/10 hover:border-amber-500 text-slate-200 hover:text-white flex items-center justify-center transition-all duration-150 hover:-translate-y-0.5"
+                        >
+                          <Mail className="w-4 h-4" />
+                        </a>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setAdminModalOpen(true)}
+                          aria-label="Set Developer Gmail in Admin Settings"
+                          title="Gmail (एडमिन सेटिंग्स में अपना Gmail पता जोड़ें)"
+                          className="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-150 hover:-translate-y-0.5"
+                        >
+                          <Mail className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Small CTA Block */}
+                    <div className="flex flex-col sm:items-end gap-1">
+                      <span className="text-[11px] text-amber-300/90 font-medium">
+                        अपनी दुकान या Business को Digital पहचान दें
+                      </span>
+                      <a
+                        href={devWhatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 border border-sky-400/30 text-sky-200 hover:text-white text-xs font-semibold transition-all duration-150 whitespace-nowrap"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                        Website बनवाने के लिए Contact करें
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+
+          <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div>© 2026 Netri Eye Care Center &amp; Chashma Ghar</div>
+            <div className="text-[11px] text-slate-400">
+              Designed &amp; Developed by <span className="text-slate-200 font-medium">Suraj Maurya</span> • <span className="text-amber-400 font-medium">5tarSuraj</span>
+            </div>
             <div className="flex items-center gap-5">
               <button
                 type="button"

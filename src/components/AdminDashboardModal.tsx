@@ -18,6 +18,7 @@ import {
 import {
   AppointmentRequest,
   CustomerEnquiry,
+  DEFAULT_DEVELOPER_CONFIG,
   EyewearProduct,
   FrameCategory,
   INITIAL_STORE_CONFIG,
@@ -429,6 +430,31 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                       setDraftConfig({ ...draftConfig, bannerAnnouncementHi: e.target.value })
                     }
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm"
+                  />
+                </div>
+
+                {/* Developer Settings: Editable Gmail Field */}
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="text-xs font-bold uppercase tracking-wider text-sky-800">
+                    Developer Settings (Suraj Maurya • 5tarSuraj)
+                  </div>
+                  <label className="block text-xs font-semibold text-slate-700">
+                    📧 Developer Gmail Address (यहाँ अपना Gmail पता दर्ज करें — फुटर में Gmail बटन इससे जुड़ेगा)
+                  </label>
+                  <input
+                    type="email"
+                    value={draftConfig.developer?.gmailAddress ?? ''}
+                    onChange={(e) =>
+                      setDraftConfig({
+                        ...draftConfig,
+                        developer: {
+                          ...(draftConfig.developer || DEFAULT_DEVELOPER_CONFIG),
+                          gmailAddress: e.target.value,
+                        },
+                      })
+                    }
+                    placeholder="Enter your Gmail address here (e.g. yourname@gmail.com)"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm font-mono-num"
                   />
                 </div>
 

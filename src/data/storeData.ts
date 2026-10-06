@@ -81,6 +81,21 @@ export interface CustomerEnquiry {
   details: string;
 }
 
+export interface DeveloperConfig {
+  name: string;
+  handle: string;
+  subtitle: string;
+  descriptionHi: string;
+  phone: string;
+  whatsappPhone: string;
+  whatsappPrefill: string;
+  instagramHandle: string;
+  instagramUrl: string;
+  facebookUrl: string;
+  websiteUrl: string;
+  gmailAddress: string; // Editable in developer/admin settings; intentionally empty by default (no invented email)
+}
+
 export interface StoreConfig {
   businessNameHi: string;
   businessNameEn: string;
@@ -101,7 +116,24 @@ export interface StoreConfig {
   services: ServiceItem[];
   products: EyewearProduct[];
   gallery: GalleryItem[];
+  developer?: DeveloperConfig;
 }
+
+export const DEFAULT_DEVELOPER_CONFIG: DeveloperConfig = {
+  name: 'Suraj Maurya',
+  handle: '5tarSuraj',
+  subtitle: 'Web Developer & Digital Creator',
+  descriptionHi:
+    'यह वेबसाइट Suraj Maurya (5tarSuraj) द्वारा डिजाइन एवं विकसित की गई है। अपनी दुकान, संस्था या Business के लिए Professional Website बनवाने के लिए संपर्क करें।',
+  phone: '9792006815',
+  whatsappPhone: '919792006815',
+  whatsappPrefill: 'नमस्ते Suraj जी, मुझे अपने Business के लिए Professional Website बनवानी है।',
+  instagramHandle: '@suraj.5tar',
+  instagramUrl: 'https://www.instagram.com/suraj.5tar',
+  facebookUrl: 'https://www.facebook.com/share/p/18o6HAmdUF/',
+  websiteUrl: 'https://srd-one.vercel.app/',
+  gmailAddress: '', // Enter your Gmail address here or in Admin -> Developer Settings
+};
 
 export const INITIAL_STORE_CONFIG: StoreConfig = {
   businessNameHi: 'नेत्री आई केयर सेंटर एवं चश्मा घर',
@@ -359,6 +391,7 @@ export const INITIAL_STORE_CONFIG: StoreConfig = {
       captionHi: 'धूप व छांव के लिए चश्मे एवं ARC लेंस विकल्प',
     },
   ],
+  developer: DEFAULT_DEVELOPER_CONFIG,
 };
 
 export function createWhatsAppUrl(phone: string, message: string): string {
